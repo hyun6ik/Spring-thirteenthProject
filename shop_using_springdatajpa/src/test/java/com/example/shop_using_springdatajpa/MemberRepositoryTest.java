@@ -1,13 +1,13 @@
 package com.example.shop_using_springdatajpa;
 
-import org.assertj.core.api.Assertions;
+import com.example.shop_using_springdatajpa.domain.Member;
+import com.example.shop_using_springdatajpa.repository.MemberRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
 import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @Transactional

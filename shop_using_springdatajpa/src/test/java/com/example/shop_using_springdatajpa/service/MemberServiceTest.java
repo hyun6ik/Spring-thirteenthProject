@@ -43,7 +43,7 @@ class MemberServiceTest {
 
         //when
         memberService.join(member1);
-        
+
         //then
         assertThrows(IllegalStateException.class,() ->{
             memberService.join(member2); //예외발생

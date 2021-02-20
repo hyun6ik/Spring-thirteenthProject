@@ -41,14 +41,19 @@ public class Order {
         member.getOrders().add(this);
     }
 
-    public void addOrderItem(OrderItem orderItem){
+    public void addOrderItem(OrderItem orderItem, int price, int quantity){
         this.getOrderItems().add(orderItem);
         orderItem.setOrder(this);
+
+
     }
 
     public void setDelivery(Delivery delivery){
         this.delivery = delivery;
         delivery.setOrder(this);
     }
+
+    // 비즈니스 로직
+
 
 }

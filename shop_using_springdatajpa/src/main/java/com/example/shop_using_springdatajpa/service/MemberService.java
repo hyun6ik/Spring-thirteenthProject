@@ -28,8 +28,8 @@ public class MemberService {
 
     // 중복회원 검증
     private void validateDuplicateMember(Member member) {
-        Member findMember = memberRepository.findMemberById(member.getId());
-        if(!StringUtils.isEmpty(findMember.getUsername())){
+        List<Member> findMembers = memberRepository.findByName(member.getUsername());
+        if(!findMembers.isEmpty()){
             throw new IllegalStateException("이미 존재하는 회원입니다!");
         }
     }

@@ -23,7 +23,7 @@ class MemberServiceTest {
     public void 회원가입() throws Exception {
         //given
         Member member = new Member();
-        member.setUsername("memberA");
+        member.setName("memberA");
         memberService.join(member);
         //when
         Member findMember = memberService.findMember(member.getId());
@@ -36,10 +36,10 @@ class MemberServiceTest {
     public void 중복회원예외() throws Exception {
         //given
         Member member1 = new Member();
-        member1.setUsername("Yoon1");
+        member1.setName("Yoon1");
 
         Member member2 = new Member();
-        member2.setUsername("Yoon1");
+        member2.setName("Yoon1");
 
         //when
         memberService.join(member1);

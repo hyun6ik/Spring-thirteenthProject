@@ -4,12 +4,9 @@
     <title>Hello, world!</title>
 </head>
 <body>
+    <div th:replace="fragments/header :: navbar"></div>
     <div th:replace="fragments/bodyHeader :: bodyHeader"></div>
     <main class="container">
-        <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-            <h1> 현식이네 책 가게</h1>
-        </div>
-
         <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
             <div class="col">
                 <div class="card mb-4 shadow-sm">
@@ -18,8 +15,8 @@
                     </div>
                     <div class="card-body">
                         <div class="d-grid gap-2 col-6 mx-auto">
-                            <button type="button" class="w-100 btn btn-lg btn-outline-secondary">회원 가입</button>
-                            <button type="button" class="w-100 btn btn-lg btn-outline-secondary">회원 목록</button>
+                            <a class="w-100 btn btn-lg btn-outline-secondary" href="/members/new">회원 가입</a>
+                            <a class="w-100 btn btn-lg btn-outline-secondary">회원 목록</a>
                         </div>
                     </div>
                 </div>
@@ -31,8 +28,8 @@
                     </div>
                     <div class="card-body">
                         <div class="d-grid gap-2 col-6 mx-auto">
-                            <button type="button" class="w-100 btn btn-lg btn-outline-secondary">상품 등록</button>
-                            <button type="button" class="w-100 btn btn-lg btn-outline-secondary">상품 목록</button>
+                            <a class="w-100 btn btn-lg btn-outline-secondary">상품 등록</a>
+                            <a class="w-100 btn btn-lg btn-outline-secondary">상품 목록</a>
                         </div>
                     </div>
                 </div>
@@ -44,8 +41,8 @@
                     </div>
                     <div class="card-body">
                         <div class="d-grid gap-2 col-6 mx-auto">
-                            <button type="button" class="w-100 btn btn-lg btn-outline-secondary">상품 주문</button>
-                            <button type="button" class="w-100 btn btn-lg btn-outline-secondary">주문 내역</button>
+                            <a class="w-100 btn btn-lg btn-outline-secondary">상품 주문</a>
+                            <a class="w-100 btn btn-lg btn-outline-secondary">주문 내역</a>
                         </div>
                     </div>
                 </div>

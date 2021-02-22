@@ -30,6 +30,9 @@
                 <label th:for="zipcode">우편번호</label>
                 <input type="text" th:field="*{zipcode}" class="form-control" placeholder="우편번호를 입력하세요"
             </div>
+            <div class="d-grid gap-2 d-md-flex mt-3 justify-content-md-end">
+            <button type="submit" class="btn btn-secondary">가입하기</button>
+            </div>
         </form>   
     </div>
     <div th:replace="fragments/footer :: footer" />

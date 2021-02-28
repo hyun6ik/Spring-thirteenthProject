@@ -11,14 +11,14 @@ import static javax.persistence.FetchType.*;
 @Getter @Setter
 public class Delivery {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     @Column(name = "delivery_id")
     private Long id;
 
-    @OneToOne(mappedBy="delivery", fetch = LAZY)
+    @OneToOne(mappedBy = "delivery", fetch = LAZY)
     private Order order;
 
-    @Embedded
     private Address address;
 
     @Enumerated(EnumType.STRING)

@@ -19,10 +19,9 @@ public class MemberController {
 
     private final MemberService memberService;
 
-
     @GetMapping("/members/new")
     public String createForm(Model model){
-        model.addAttribute("memberForm" ,new MemberForm());
+        model.addAttribute("memberForm", new MemberForm());
         return "members/createMemberForm";
     }
 
@@ -30,27 +29,24 @@ public class MemberController {
     public String create(@Valid MemberForm form, BindingResult result){
 
         if(result.hasErrors()){
-            return "/members/createMemberForm";
+            return "members/createMemberForm";
         }
 
         Address address = new Address(form.getCity(), form.getStreet(), form.getZipcode());
-
         Member member = new Member();
         member.setName(form.getName());
         member.setAddress(address);
 
         memberService.join(member);
-
         return "redirect:/";
-
     }
 
     @GetMapping("/members")
     public String list(Model model){
         List<Member> members = memberService.findAllMember();
         model.addAttribute("members", members);
-
         return "members/memberList";
     }
+
 
 }

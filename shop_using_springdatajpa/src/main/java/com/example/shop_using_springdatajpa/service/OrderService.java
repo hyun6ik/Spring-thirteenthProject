@@ -1,9 +1,6 @@
 package com.example.shop_using_springdatajpa.service;
 
-import com.example.shop_using_springdatajpa.domain.Delivery;
-import com.example.shop_using_springdatajpa.domain.Member;
-import com.example.shop_using_springdatajpa.domain.Order;
-import com.example.shop_using_springdatajpa.domain.OrderItem;
+import com.example.shop_using_springdatajpa.domain.*;
 import com.example.shop_using_springdatajpa.domain.item.Item;
 import com.example.shop_using_springdatajpa.repository.ItemRepository;
 import com.example.shop_using_springdatajpa.repository.MemberRepository;
@@ -11,6 +8,8 @@ import com.example.shop_using_springdatajpa.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 @Transactional(readOnly = true)
@@ -26,8 +25,8 @@ public class OrderService {
     public Long order(Long memberId, Long itemId, int count){
 
         //엔티티 조회
-        Member member = memberRepository.findById(memberId).orElse(null);
-        Item item = itemRepository.findById(itemId).orElse(null);
+        Member member = memberRepository.findMemberById(memberId);
+        Item item = itemRepository.findItemById(itemId);
 
         //배송정보 생성
         Delivery delivery = new Delivery();
@@ -50,15 +49,19 @@ public class OrderService {
     //상품 취소
     @Transactional
     public void cancelOrder(Long orderId){
-        Order order = orderRepository.findById(orderId).orElse(null);
+        Order order = orderRepository.findOrderById(orderId);
         order.cancel();
     }
 
 
     // 상품 조회
     public Order findOne(Long orderId){
-        return orderRepository.findById(orderId).orElse(null);
+        return orderRepository.findOrderById(orderId);
     }
 
     //
+    public List<Order> findOrders(OrderSearch orderSearch) {
+        return orderRepository.findAllByCriteria(orderSearch);
+    }
+
 }
